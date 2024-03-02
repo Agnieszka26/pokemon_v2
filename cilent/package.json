@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write .",
-    "prepare": "husky",
+    "postinstall": "cd .. && husky cilent/.husky",
     "dev": "cross-env NODE_OPTIONS='--inspect' next dev"
   },
   "dependencies": {
