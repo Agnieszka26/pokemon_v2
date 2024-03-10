@@ -1,14 +1,15 @@
 const resolvers = {
     Query: {
-        // returns an array of pokemons that will be used to populate the homepage carousel of our web client
+        // returns a base details of pokemons 
         getPokemon: (__, { id }, { dataSources }) => {
             return dataSources.pokemonAPI.getPokemon(id);
         },
+        // returns a paginated array of pokemons that will be used to populate the homepage carousel of our web client 
+        getPokemons: (__, { limit, offset }, { dataSources }) => {
+          return dataSources.pokemonAPI.getPokemons(limit, offset);
+      },
 
-        //returns images of the pokemon
-        getPokemonSpritesByID: (_, { id }, { dataSources }) => {
-            return dataSources.pokemonsAPI.pokemon_v2_pokemonsprites_by_pk(id);
-        },
+
     },
 };
 
