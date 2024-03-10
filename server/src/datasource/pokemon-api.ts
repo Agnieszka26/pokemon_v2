@@ -1,15 +1,10 @@
-import {RESTDataSource }from "@apollo/datasource-rest"
+import { RESTDataSource } from '@apollo/datasource-rest';
 class PokemonAPI extends RESTDataSource {
-
     baseURL = 'https://pokeapi.co/api/v2/pokemon/';
-  
-    getPokemon(id) {
-       
-      return this.get(`/${id}`);
+
+    getPokemon(pokemonId) {
+        return this.get(`${pokemonId}`);
     }
-  
+}
 
-  }
-
-
-  export default PokemonAPI
+export default PokemonAPI;
