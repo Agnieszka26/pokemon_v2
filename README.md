@@ -19,21 +19,21 @@ Welcome to Pokemon_v2, your ultimate destination for Pokemon battles, exploratio
 
 ## Technologies Used
 ###### general: 
-- typescript  - version ^5
-- yarn - version ^1.22.17
-- node - vesrion ^20.11.0
+- typescript  - version 5
+- yarn - version 1.22.17
+- node - vesrion 20.11.0
 ###### backend
-- apollo-server - vesrsion ^4.10.0
-- graphql - version ^16.8.1
+- apollo-server - vesrsion 4.10.0
+- graphql - version 16.8.1
 ###### frontend 
 - next - version  14.1.0,
-- react- version  ^18,
-- rettier- version  ^3.2.5,
-- tailwindcss - version  ^3.3.0,
-- daisyui- version ^4.7.2,
-- eslint- version  ^8,
-- husky- version  ^9.0.11,
-- postcss - version ^8,
+- react- version  18,
+- rettier- version 3.2.5,
+- tailwindcss - version 3.3.0,
+- daisyui- version 4.7.2,
+- eslint- version  8,
+- husky- version  9.0.11,
+- postcss - version 8,
 
 
 ## Features
