@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.9.7",
+    "axios": "^1.6.8",
     "graphql": "^16.8.1",
     "next": "14.1.0",
     "react": "^18",
