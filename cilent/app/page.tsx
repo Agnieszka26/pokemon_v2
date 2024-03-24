@@ -1,16 +1,23 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Carousel } from 'react-daisyui';
 
 import { gql, useQuery } from '@apollo/client';
+import axios from 'axios';
+
+interface PokemonResult {
+  name: string;
+  url: string;
+}
+
+interface PokemonSprite {
+  front_default: string;
+}
 
 export const GET_POKEMONS = gql`
   query GetPokemons($limit: Int!, $offset: Int!) {
     getPokemons(limit: $limit, offset: $offset) {
-      count
-      next
-      previous
       results {
         name
         url
@@ -23,32 +30,51 @@ const Home = () => {
   const { error, loading, data } = useQuery(GET_POKEMONS, {
     variables: { limit: 5, offset: 0 },
   });
-  console.log({ error });
-  console.log({ data });
-  console.log({ loading });
+
+  const [pokemonSprites, setPokemonSprites] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchPokemonSprites = async () => {
+      if (!loading && data) {
+        const results: PokemonResult[] = data.getPokemons.results;
+        const spritesPromises: Promise<string>[] = results.map(async (result) => {
+          try {
+            const response = await axios.get(result.url);
+            const pokemonData: PokemonSprite = response.data.sprites;
+            return pokemonData.front_default;
+          } catch (error) {
+            console.error('Error fetching sprite:', error);
+            return '';
+          }
+        });
+        const sprites = await Promise.all(spritesPromises);
+        setPokemonSprites(sprites);
+      }
+    };
+    fetchPokemonSprites();
+  }, [loading, data]);
+
+
+  console.log({ pokemonSprites });
+
   return (
-    <Carousel
-      className="rounded-box"
-      buttonStyle={(value: string) => <Button color="primary">{value}</Button>}
-      display="sequential"
-    >
-      <Carousel.Item
-        src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
-        alt="City"
-      />
-      <Carousel.Item
-        src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
-        alt="City"
-      />
-      <Carousel.Item
-        src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
-        alt="City"
-      />
-      <Carousel.Item
-        src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
-        alt="City"
-      />
-    </Carousel>
+    <div>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {!loading && pokemonSprites.length > 0 && (
+        <Carousel
+          className="rounded-box"
+          buttonStyle={(value: string) => (
+            <Button color="primary">{value}</Button>
+          )}
+          display="sequential"
+        >
+          {pokemonSprites.map((sprite, i) => (
+            <Carousel.Item key={i} src={sprite} alt={`Pokemon ${i + 1}`} />
+          ))}
+        </Carousel>
+      )}
+    </div>
   );
 };
 
