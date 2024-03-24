@@ -1,6 +1,6 @@
 # Pokemon_v2
 > Pokemon Quest: Gotta Catch 'Em All!
-> Live demo [_here_](hhttps://pokemon-v2-agnieszka26.vercel.app/) 
+> Live demo [_here_](https://pokemon-v2-agnieszka26.vercel.app/) 
 
 
 ## Table of Contents
@@ -57,6 +57,7 @@ Welcome to Pokemon_v2, your ultimate destination for Pokemon battles, exploratio
 
 ## Setup
 ### Getiing started
+note: If you have not installed yarn globally you have to - the project requrires yarn.
 1. First clone code from repository in your dedicated folder
 ```bash
 git clone https://github.com/Agnieszka26/pokemon_v2.git
@@ -69,8 +70,7 @@ cd pokemon_v2/client
 ```bash
 yarn install
 ```
-note: If you have not installed yarn globally you have to - the project requrires yarn.
-4. Create yourown enviromental variables in .env file on the same level as app folder with keys: 
+4. Create your own enviromental variables in .env file on the same level as app folder with keys: 
 ```
 NEXT_PUBLIC_EXAMPLE_KEY_IN_ENV= 
 ```
@@ -84,7 +84,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 **Congrats! 🚀 Your fronted is ready!**
 Now, lets move to your backend server:
 
-6. In your terminal run
+6. In your new terminal for the server run
 ```bash
 cd ../server
 ```
@@ -94,7 +94,7 @@ npm install
 ```
 8. make your local backend server up and running:
 ```
-npm dev
+npm start
 ```
 **Congrats! 🚀 Your backend is ready!** 
 Now the project is redy to development and testing on your lokal machine!
