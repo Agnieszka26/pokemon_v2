@@ -16,8 +16,6 @@ const PokemonCarouselContainer = () => {
 
   const pokemonSprites = usePokemonSprites(loading, data);
 
-  console.log(typeof pokemonSprites);
-
   return (
     <>
       <div>
