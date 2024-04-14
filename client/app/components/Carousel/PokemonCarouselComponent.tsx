@@ -1,5 +1,4 @@
 import React from 'react';
-import type { Key } from 'react';
 import { Button, Carousel } from 'react-daisyui';
 import { PokemonCarouselProps } from './CarouselTypes';
 
@@ -17,7 +16,7 @@ const PokemonCarouselComponent = ({
           }}
           display="sequential"
         >
-          {pokemonSprites.map((sprite: string, i: Key) => (
+          {pokemonSprites.map((sprite: string, i: number) => (
             <Carousel.Item
               key={i}
               src={sprite}

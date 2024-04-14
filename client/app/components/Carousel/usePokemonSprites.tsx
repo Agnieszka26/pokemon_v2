@@ -3,7 +3,7 @@ import { PokemonResult, PokemonSprite } from './CarouselTypes';
 import { useEffect, useState } from 'react';
 
 export const usePokemonSprites = (
-  loading: unknown,
+  loading: boolean,
   data: { getPokemons: { results: PokemonResult[] } } | undefined
 ) => {
   const [pokemonSprites, setPokemonSprites] = useState<string[]>([]);
@@ -30,6 +30,6 @@ export const usePokemonSprites = (
     };
     fetchPokemonSprites();
   }, [loading, data]);
-  console.log({ pokemonSprites });
+
   return pokemonSprites;
 };

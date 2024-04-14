@@ -7,7 +7,6 @@ import { usePokemonSprites } from './usePokemonSprites';
 
 import PokemonCarouselComponent from './PokemonCarouselComponent';
 
-//qgl query
 import { GET_POKEMONS } from '@/app/core/gql';
 
 const PokemonCarouselContainer = () => {
