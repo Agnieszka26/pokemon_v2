@@ -23,18 +23,18 @@ Welcome to Pokemon_v2, your ultimate destination for Pokemon battles, exploratio
 
 -   typescript - version 5
 -   yarn - version 1.22.17
--   node - vesrion 20.11.0
+-   node - version 20.11.0
 
 ###### backend
 
--   apollo-server - vesrsion 4.10.0
+-   apollo-server - version 4.10.0
 -   graphql - version 16.8.1
 
 ###### frontend
 
 -   next - version 14.1.0,
 -   react- version 18,
--   rettier- version 3.2.5,
+-   prettier- version 3.2.5,
 -   tailwindcss - version 3.3.0,
 -   daisyui- version 4.7.2,
 -   eslint- version 8,
@@ -65,7 +65,7 @@ Welcome to Pokemon_v2, your ultimate destination for Pokemon battles, exploratio
 
 ### Getiing started
 
-note: If you have not installed yarn globally you have to - the project requrires yarn.
+note: If you have not installed yarn globally you have to - the project requires yarn.
 
 1. First clone code from repository in your dedicated folder
 
@@ -79,13 +79,13 @@ git clone https://github.com/Agnieszka26/pokemon_v2.git
 cd pokemon_v2/client
 ```
 
-3. ...where install nessesary dependencies:
+3. ...where install necessary dependencies:
 
 ```bash
 yarn install
 ```
 
-4. Create your own enviromental variables in .env file on the same level as app folder with keys:
+4. Create your own environmental variables in .env file on the same level as app folder with keys:
 
 ```
 NEXT_PUBLIC_EXAMPLE_KEY_IN_ENV=
@@ -121,13 +121,13 @@ npm start
 ```
 
 **Congrats! 🚀 Your backend is ready!**
-Now the project is redy to development and testing on your lokal machine!
+Now the project is ready to development and testing on your local machine!
 
 <!--@todo: When be and fr will be connected update this-->
 
 ## Usage
 
-The purpouse of this project is to train the skills as a fullstack developer. The project is in development status. If you want to develop this project, do not hesitate and contact us!
+The purpose of this project is to train the skills as a fullstack developer. The project is in development status. If you want to develop this project, do not hesitate and contact us!
 
 ## Project Status
 
