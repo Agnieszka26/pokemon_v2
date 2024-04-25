@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button, Carousel } from 'react-daisyui';
-import { PokemonCarouselProps } from './CarouselTypes';
+import { PokemonDataProps } from '../../core/types/Types';
 
 const PokemonCarouselComponent = ({
   loading,
-  pokemonSprites,
-}: PokemonCarouselProps): React.JSX.Element => {
+  pokemonData,
+}: PokemonDataProps): React.JSX.Element => {
   return (
     <>
-      {!loading && pokemonSprites.length > 0 && (
+      {!loading && pokemonData && pokemonData.length > 0 && (
         <Carousel
           className="rounded-box"
           buttonStyle={(value: string) => {
@@ -16,12 +16,8 @@ const PokemonCarouselComponent = ({
           }}
           display="sequential"
         >
-          {pokemonSprites.map((sprite: string, i: number) => (
-            <Carousel.Item
-              key={i}
-              src={sprite}
-              alt={`Pokemon ${(i as number) + 1}`}
-            />
+          {pokemonData.map((sprite: string, i: number) => (
+            <Carousel.Item key={i} src={sprite} alt={`Pokemon ${i + 1}`} />
           ))}
         </Carousel>
       )}
