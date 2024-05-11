@@ -6,7 +6,19 @@ const typeDefs = gql`
         getPokemon(id: Int!): Pokemon!
 
         "Query to get pokemon array for the homepage carousel (paginated)"
-        getPokemons(limit: Int!, offset: Int!): ResponsePaginationPokemon
+        getLimitedPokemons(limit: Int!, offset: Int!): ResponsePaginationPokemon
+    }
+
+    type ResponsePaginationPokemon {
+        count: Int
+        next: String
+        previous: String
+        results: [NamedAPIResource!]!
+    }
+
+    type NamedAPIResource {
+        name: String!
+        url: Pokemon!
     }
 
     type Pokemon {
@@ -18,24 +30,12 @@ const typeDefs = gql`
         is_default: Boolean!
         order: Int
         pokemon_species_id: Int
-        sprites: PokemonSprites
+        sprites: PokemonSprites!
     }
 
     type PokemonSprites {
         front_default: String
         front_shiny: String
-    }
-
-    type ResponsePaginationPokemon {
-        count: Int
-        next: String
-        previous: String
-        results: [NamedAPIResource]
-    }
-
-    type NamedAPIResource {
-        name: String
-        url: String
     }
 `;
 
