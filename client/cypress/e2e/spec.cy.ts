@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
-describe('Carousel', () => {
-  it('Visits the PokemonAapp Page', () => {
+describe('Loading String Test', () => {
+  beforeEach(() => {
     cy.visit('http://localhost:3000/');
   });
 });
