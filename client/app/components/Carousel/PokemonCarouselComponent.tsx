@@ -12,7 +12,14 @@ const PokemonCarouselComponent = ({
         <Carousel
           className="rounded-box"
           buttonStyle={(value: string) => {
-            return <Button color="primary">{value}</Button>;
+            return (
+              <Button
+                id={value === '❯' ? 'button_next' : 'button_prev'}
+                color="primary"
+              >
+                {value}
+              </Button>
+            );
           }}
           display="sequential"
         >
