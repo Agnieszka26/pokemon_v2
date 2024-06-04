@@ -105,19 +105,19 @@ Now, lets move to your backend server:
 6. In your new terminal for the server run
 
 ```bash
-cd server
+cd pokemon_v2/server
 ```
 
 7. install your dependencies via npm
 
 ```bash
-npm install
+yarn install
 ```
 
 8. make your local backend server up and running:
 
-```
-npm start
+```bash
+yarn start
 ```
 
 **Congrats! 🚀 Your backend is ready!**
