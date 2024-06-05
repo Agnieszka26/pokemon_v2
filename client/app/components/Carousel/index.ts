@@ -1,3 +1,3 @@
-import PokemonCarouselContainer from './PokemonCarouselContainer';
+import { PokemonCarouselContainer } from './PokemonCarouselContainer';
 
 export default PokemonCarouselContainer;

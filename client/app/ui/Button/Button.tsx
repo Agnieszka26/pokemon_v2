@@ -6,12 +6,10 @@ type ButtonProps = {
   className?: string;
 } & ComponentProps<'button'>;
 
-const Button = ({ label, className, ...rest }: ButtonProps) => {
+export const Button = ({ label, className, ...rest }: ButtonProps) => {
   return (
     <button className={cn('btn', className)} {...rest}>
       {label}
     </button>
   );
 };
-
-export default Button;
