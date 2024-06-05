@@ -22,7 +22,7 @@ Welcome to Pokemon_v2, your ultimate destination for Pokemon battles, exploratio
 ###### general:
 
 -   typescript - version 5
--   yarn - version 1.22.17
+-   yarn - version 4.2.2
 -   node - version 20.11.0
 
 ###### backend
