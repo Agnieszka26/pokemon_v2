@@ -5,7 +5,7 @@ import { PokemonDataProps } from '../../core/types/Types';
 const PokemonCarouselComponent = ({
   loading,
   pokemonData,
-}: PokemonDataProps): React.JSX.Element => {
+}: PokemonDataProps) => {
   return (
     <>
       {!loading && pokemonData && pokemonData.length > 0 && (
