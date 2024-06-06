@@ -3,7 +3,20 @@
   "globals": {
     "React": "readonly"
   },
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "cypress/globals": true
+  },
+  "plugins": ["cypress"],
   "rules": {
-    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }]
+    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }],
+    "cypress/no-assigning-return-values": "error",
+    "cypress/no-unnecessary-waiting": "warn",
+    "cypress/assertion-before-screenshot": "warn",
+    "cypress/no-force": "warn",
+    "cypress/no-async-tests": "error",
+    "cypress/no-async-before": "error",
+    "cypress/no-pause": "error"
   }
 }
