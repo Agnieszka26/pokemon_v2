@@ -8,6 +8,10 @@ const resolvers = {
         getLimitedPokemons: (__, { limit, offset }, { dataSources }) => {
             return dataSources.pokemonAPI.getLimitedPokemons(limit, offset);
         },
+        //pokemons from custom mongodb
+        pokemons: async(__, _, { dataSources }) => {return await dataSources.basePokemons.pokemons()},
+        //pokemon by its id from custom mongodb
+        pokemon: async (__, { id }, { dataSources }) => {return await dataSources.basePokemons.pokemon(id)},
     },
     NamedAPIResource: {
         url: ({ url }, _, { dataSources }) => {

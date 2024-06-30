@@ -5,6 +5,9 @@ const typeDefs = gql`
         "Query to get pokemon specified by id"
         getPokemon(id: Int!): Pokemon!
 
+     #pokemon from our db
+pokemons: [BasePokemon]
+pokemon(id: String): BasePokemon
         "Query to get pokemon array for the homepage carousel (paginated)"
         getLimitedPokemons(limit: Int!, offset: Int!): ResponsePaginationPokemon
     }
@@ -37,6 +40,14 @@ const typeDefs = gql`
         front_default: String
         front_shiny: String
     }
+
+
+# BasePokemon object
+type BasePokemon {
+    id: String
+    name: String
+}
+
 `;
 
 export default typeDefs;
