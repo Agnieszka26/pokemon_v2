@@ -124,6 +124,14 @@
     "@apollo/utils.logger" "^2.0.1"
     lru-cache "^7.14.1"
 
+"@apollo/utils.keyvaluecache@^3.0.0":
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/@apollo/utils.keyvaluecache/-/utils.keyvaluecache-3.1.0.tgz"
+  integrity sha512-MM/DKIqpQQbuNG1gNPAlGc45THdWkroTmN8o/J09merFwf/LlZ7+lAfcHFDXIYIknwKmUjJrOMS3OxYbjrz2hA==
+  dependencies:
+    "@apollo/utils.logger" "^3.0.0"
+    lru-cache "^10.0.0"
+
 "@apollo/utils.keyvaluecache@^3.1.0":
   version "3.1.0"
   resolved "https://registry.npmjs.org/@apollo/utils.keyvaluecache/-/utils.keyvaluecache-3.1.0.tgz"
@@ -477,6 +485,15 @@ anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
+apollo-datasource-mongodb@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.npmjs.org/apollo-datasource-mongodb/-/apollo-datasource-mongodb-0.6.0.tgz"
+  integrity sha512-WdQORVKBleXLrmLQINLYmUfFtsqgwlLmLedr8Ebtxy15aT4iMC4er6tJEStyOTDaahQp6JpL7rT7fFII1642Vg==
+  dependencies:
+    "@apollo/utils.keyvaluecache" "^3.0.0"
+    bson "^5.4.0"
+    dataloader "^1.4.0"
+
 arg@^4.1.0:
   version "4.1.3"
   resolved "https://registry.npmjs.org/arg/-/arg-4.1.3.tgz"
@@ -553,6 +570,11 @@ bson@^4.5.4:
   integrity sha512-Ry9wCtIZ5kGqkJoi6aD8KjxFZEx78guTQDnpXWiNthsxzrxAK/i8E6pCHAIZTbaEFWcOCvbecMukfK7XUvyLpQ==
   dependencies:
     buffer "^5.6.0"
+
+bson@^5.4.0:
+  version "5.5.1"
+  resolved "https://registry.npmjs.org/bson/-/bson-5.5.1.tgz"
+  integrity sha512-ix0EwukN2EpC0SRWIj/7B5+A6uQMQy6KMREI9qQqvgpkV2frH63T0UDVd1SYedL6dNCmDBYB3QtXi4ISk9YT+g==
 
 bson@^6.7.0:
   version "6.7.0"
@@ -649,6 +671,11 @@ create-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.npmjs.org/create-require/-/create-require-1.1.1.tgz"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
+
+dataloader@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/dataloader/-/dataloader-1.4.0.tgz"
+  integrity sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==
 
 debug@^4:
   version "4.3.4"

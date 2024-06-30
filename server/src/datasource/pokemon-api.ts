@@ -5,6 +5,7 @@ class PokemonAPI extends RESTDataSource {
     getPokemon(pokemonId) {
         return this.get(`pokemon/${pokemonId}`);
     }
+
     getLimitedPokemons(limit, offset) {
         return this.get(`pokemon/?limit=${limit}&offset=${offset}/`);
     }
