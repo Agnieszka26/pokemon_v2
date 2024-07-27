@@ -22,7 +22,7 @@ Welcome to Pokemon_v2, your ultimate destination for Pokemon battles, exploratio
 ###### general:
 
 -   typescript - version 5
--   yarn - version 4.2.2
+-   npm - version 10.2.4
 -   node - version 20.11.0
 
 ###### backend
@@ -65,8 +65,6 @@ Welcome to Pokemon_v2, your ultimate destination for Pokemon battles, exploratio
 
 ### Getiing started
 
-note: If you have not installed yarn globally you have to - the project requires yarn.
-
 1. First clone code from repository in your dedicated folder
 
 ```bash
@@ -82,7 +80,7 @@ cd pokemon_v2/client
 3. ...where install necessary dependencies:
 
 ```bash
-yarn install
+npm install
 ```
 
 4. Create your own environmental variables in .env file on the same level as app folder with keys:
@@ -94,7 +92,7 @@ NEXT_PUBLIC_EXAMPLE_KEY_IN_ENV=
 5. Lastly, run the development server:
 
 ```bash
-yarn dev
+npm run  dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -111,13 +109,13 @@ cd pokemon_v2/server
 7. install your dependencies via npm
 
 ```bash
-yarn install
+npm install
 ```
 
 8. make your local backend server up and running:
 
 ```bash
-yarn start
+npm start
 ```
 
 **Congrats! 🚀 Your backend is ready!**

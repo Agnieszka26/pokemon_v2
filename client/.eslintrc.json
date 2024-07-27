@@ -1,11 +1,17 @@
 {
-  "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:cypress/recommended"
+  ],
   "globals": {
     "React": "readonly"
   },
   "env": {
     "browser": true,
-    "es2021": true,
+    "node": true,
+    "es6": true,
     "cypress/globals": true
   },
   "plugins": ["cypress"],
