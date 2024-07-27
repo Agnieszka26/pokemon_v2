@@ -1,8 +1,11 @@
 import mongoose, { Schema } from "mongoose";
 
-const BasePokemonModel = mongoose.model("BasePokemon", new Schema({
+const BasePokemonModel = mongoose.model(
+  "BasePokemon",
+  new Schema({
     name: String,
-    id: String
-}))
+    id: String,
+  }),
+);
 
-export default  BasePokemonModel 
+export default BasePokemonModel;
