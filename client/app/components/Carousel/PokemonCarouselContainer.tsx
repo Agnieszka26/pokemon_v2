@@ -8,7 +8,7 @@ import PokemonCarouselComponent from './PokemonCarouselComponent';
 
 import { GET_POKEMON_DATA } from '@/app/core/gql';
 
-const PokemonCarouselContainer = () => {
+export const PokemonCarouselContainer = () => {
   const { error, loading, data } = useQuery(GET_POKEMON_DATA, {
     variables: { limit: 5, offset: 0 },
   });
@@ -33,5 +33,3 @@ const PokemonCarouselContainer = () => {
     </>
   );
 };
-
-export default PokemonCarouselContainer;

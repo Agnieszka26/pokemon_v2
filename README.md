@@ -22,19 +22,19 @@ Welcome to Pokemon_v2, your ultimate destination for Pokemon battles, exploratio
 ###### general:
 
 -   typescript - version 5
--   yarn - version 1.22.17
--   node - vesrion 20.11.0
+-   npm - version 10.2.4
+-   node - version 20.11.0
 
 ###### backend
 
--   apollo-server - vesrsion 4.10.0
+-   apollo-server - version 4.10.0
 -   graphql - version 16.8.1
 
 ###### frontend
 
 -   next - version 14.1.0,
 -   react- version 18,
--   rettier- version 3.2.5,
+-   prettier- version 3.2.5,
 -   tailwindcss - version 3.3.0,
 -   daisyui- version 4.7.2,
 -   eslint- version 8,
@@ -65,8 +65,6 @@ Welcome to Pokemon_v2, your ultimate destination for Pokemon battles, exploratio
 
 ### Getiing started
 
-note: If you have not installed yarn globally you have to - the project requrires yarn.
-
 1. First clone code from repository in your dedicated folder
 
 ```bash
@@ -79,13 +77,13 @@ git clone https://github.com/Agnieszka26/pokemon_v2.git
 cd pokemon_v2/client
 ```
 
-3. ...where install nessesary dependencies:
+3. ...where install necessary dependencies:
 
 ```bash
-yarn install
+npm install
 ```
 
-4. Create your own enviromental variables in .env file on the same level as app folder with keys:
+4. Create your own environmental variables in .env file on the same level as app folder with keys:
 
 ```
 NEXT_PUBLIC_EXAMPLE_KEY_IN_ENV=
@@ -94,7 +92,7 @@ NEXT_PUBLIC_EXAMPLE_KEY_IN_ENV=
 5. Lastly, run the development server:
 
 ```bash
-yarn dev
+npm run  dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -105,7 +103,7 @@ Now, lets move to your backend server:
 6. In your new terminal for the server run
 
 ```bash
-cd server
+cd pokemon_v2/server
 ```
 
 7. install your dependencies via npm
@@ -116,18 +114,18 @@ npm install
 
 8. make your local backend server up and running:
 
-```
+```bash
 npm start
 ```
 
 **Congrats! 🚀 Your backend is ready!**
-Now the project is redy to development and testing on your lokal machine!
+Now the project is ready to development and testing on your local machine!
 
 <!--@todo: When be and fr will be connected update this-->
 
 ## Usage
 
-The purpouse of this project is to train the skills as a fullstack developer. The project is in development status. If you want to develop this project, do not hesitate and contact us!
+The purpose of this project is to train the skills as a fullstack developer. The project is in development status. If you want to develop this project, do not hesitate and contact us!
 
 ## Project Status
 
