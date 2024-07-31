@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Carousel } from 'react-daisyui';
-import { PokemonDataProps } from '../../core/types/Types';
+import { PokemonCarouselData } from '../../core/types/Types';
 
 const PokemonCarouselComponent = ({
   loading,
