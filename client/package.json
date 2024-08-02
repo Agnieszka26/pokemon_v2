@@ -23,10 +23,6 @@
     "realm-web": "^2.0.1",
     "tailwind-merge": "^2.3.0"
   },
-  "engines": {
-    "node": ">=18.x",
-    "npm": ">=10.2.4"
-  },
   "devDependencies": {
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
