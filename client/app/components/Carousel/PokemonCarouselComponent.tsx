@@ -1,34 +1,40 @@
-import React from 'react';
+import Image from 'next/image';
 import { Button, Carousel } from 'react-daisyui';
-import { PokemonCarouselData } from '../../core/types/Types';
-
+import { Sprites } from './PokemonCarouselContainer';
 const PokemonCarouselComponent = ({
-  loading,
+
   pokemonData,
-}: PokemonCarouselData) => {
+}: {
+  pokemonData: {
+    name: string;
+    sprites: Sprites
+  }[]
+}) => {
   return (
-    <>
-      {!loading && pokemonData && pokemonData.length > 0 && (
-        <Carousel
-          className="rounded-box"
-          buttonStyle={(value: string) => {
-            return (
-              <Button
-                id={value === '❯' ? 'button_next' : 'button_prev'}
-                color="primary"
-              >
-                {value}
-              </Button>
-            );
-          }}
-          display="sequential"
-        >
-          {pokemonData.map((sprite: string, i: number) => (
-            <Carousel.Item key={i} src={sprite} alt={`Pokemon ${i + 1}`} />
-          ))}
-        </Carousel>
-      )}
-    </>
+
+    <Carousel
+      className="rounded-box"
+      buttonStyle={(value: string) => {
+        return (
+          <Button
+            id={value === '❯' ? 'button_next' : 'button_prev'}
+            color="primary"
+          >
+            {value}
+          </Button>
+        );
+      }}
+      display="sequential"
+    >
+      {pokemonData.map(({ sprites, name }) => (
+        <Carousel.Item key={name}>
+          <Image src={sprites.front_default} alt={`Pokemon ${name}`} width={500} height={500}/>
+          <p>{name}</p>
+        </Carousel.Item>
+      ))}
+    </Carousel>
+
+
   );
 };
 

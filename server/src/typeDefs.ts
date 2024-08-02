@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 const typeDefs = gql`
   type Query {
     "Query to get pokemon specified by id"
+
     getPokemon(id: Int!): Pokemon!
 
     "pokemon from our db"
@@ -46,6 +47,7 @@ const typeDefs = gql`
     id: String
     name: String
   }
+
 `;
 
 export default typeDefs;

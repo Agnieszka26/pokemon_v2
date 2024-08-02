@@ -14,3 +14,12 @@ export const GET_POKEMON_DATA = gql`
     }
   }
 `;
+
+export const GET_POKEMON = gql`
+query Query {
+   pokemons {
+    name
+    id
+    }
+  }
+`;
