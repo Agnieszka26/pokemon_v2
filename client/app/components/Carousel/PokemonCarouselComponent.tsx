@@ -5,7 +5,7 @@ import { PokemonCarouselData } from '../../core/types/Types';
 const PokemonCarouselComponent = ({
   loading,
   pokemonData,
-}: PokemonDataProps) => {
+}: PokemonCarouselData) => {
   return (
     <>
       {!loading && pokemonData && pokemonData.length > 0 && (
