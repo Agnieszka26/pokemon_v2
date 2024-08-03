@@ -23,6 +23,7 @@ export type Sprites = {
   front_shiny: string;
   front_shiny_female: null;
 };
+
 export enum TypesPokemon {
   NORMAL = "normal",
     GRASS = "grass",
@@ -49,7 +50,7 @@ type PokemonsTypes= {
   slot: number;
   type: { name: TypesPokemon;
   url: string}
-}
+
 
 export type Pokemon = {
   name: string;
@@ -59,6 +60,7 @@ export type Pokemon = {
   weight: string;
   stats:PokemonStat[];
   types: PokemonsTypes[]
+
 };
 export type PokemonMongo = {
   name: string;
