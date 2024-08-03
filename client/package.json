@@ -20,9 +20,11 @@
     "react": "^18",
     "react-daisyui": "^5.0.0",
     "react-dom": "^18",
+    "react-icons": "^5.2.1",
     "react-multi-carousel": "^2.8.5",
     "realm-web": "^2.0.1",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.3.0",
+    "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.0.3",

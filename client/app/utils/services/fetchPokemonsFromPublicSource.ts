@@ -6,8 +6,8 @@ const fetchPokemonsFromPublicSource = async (ids: string[]): Promise<Pokemon[]> 
         try {
           const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
           const data = await response.json();
-          const { height, id: pokemonId, sprites, name, weight, stats } = data;
-          return { height, id: pokemonId, sprites, name,  weight, stats  };
+          const { height, id: pokemonId, sprites, name, weight, stats, types } = data;
+          return { height, id: pokemonId, sprites, name,  weight, stats, types };
         } catch (error) {
           console.error(`Error fetching data for Pokemon with id ${id}:`, error);
           return undefined;
