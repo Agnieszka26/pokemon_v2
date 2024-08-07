@@ -12,7 +12,13 @@ const config: Config = {
   },
   plugins: [require('daisyui')],
   daisyui: {
-    themes: ["light", ]
+    themes: [ {
+      light: {
+        ...require("daisyui/src/theming/themes")["light"],
+        primary:"#3c5aa6",
+        "primary-focus": "#c7a008",
+      },
+    },]
   },
 };
 export default config;

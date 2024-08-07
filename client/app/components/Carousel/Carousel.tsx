@@ -2,7 +2,9 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 import { Pokemon } from '@/app/core/types/Types';
-import CarouselItem from './CarouselItem';
+
+import CarouselItem from './Carouseltem/CarouselItem';
+
 
 const responsive = {
     superLargeDesktop: {
@@ -31,8 +33,10 @@ type Props = {
 const CarouselDefault = ({ data }: Props) => {
     return (
         <Carousel responsive={responsive} className='mx-auto mt-4'>
-            {data.map(({ sprites, name, id, height, weight, stats }) => {
-                return <CarouselItem key={id} name={name} sprites={sprites} height={height} id={id} weight={weight} stats={stats} />
+
+            {data.map(({ sprites, name, id, height, weight, stats , types}) => {
+                return <CarouselItem key={id} name={name} sprites={sprites} height={height} id={id} weight={weight} stats={stats} types={types} />
+
             })}
         </Carousel>
     )
