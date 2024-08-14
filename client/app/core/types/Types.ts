@@ -49,7 +49,7 @@ type PokemonStat = {
 type PokemonsTypes= {
   slot: number;
   type: { name: TypesPokemon;
-  url: string}
+  url: string}}
 
 
 export type Pokemon = {
