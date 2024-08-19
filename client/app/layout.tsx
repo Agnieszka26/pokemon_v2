@@ -11,7 +11,7 @@ import {
 } from '@apollo/client';
 import cn from './utils/className';
 const inter = Inter({ subsets: ['latin'] });
-
+const uri = process.env.NEXT_PUBLIC_NODE_ENV === "development" ? 'http://localhost:4000/' : 'https://pokemon-v2-server.vercel.app/'
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,7 +20,7 @@ export default function RootLayout({
 
   const client = new ApolloClient({
     link: new HttpLink({
-      uri: 'http://localhost:4000/',
+      uri,
 
       fetch: async (uri, options) => {
         return fetch(uri, options);

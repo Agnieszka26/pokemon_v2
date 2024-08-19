@@ -1,15 +1,26 @@
 import { ApolloServer } from "@apollo/server";
-import { startStandaloneServer } from "@apollo/server/standalone";
 import typeDefs from "./typeDefs";
 import resolvers from "./resolvers";
 import PokemonAPI from "./datasource/pokemon-api";
 import { MongoClient, ServerApiVersion } from "mongodb";
 import PokemonMongo from "./datasource/mongo-api";
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from 'dotenv';
+import express from "express";
+import cors from "cors";
+import http from "http";
+import { expressMiddleware } from '@apollo/server/express4';
+import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
+
+dotenv.config();
 
 const password = encodeURIComponent(process.env.SECRET_MONGODB);
 const uri = `mongodb+srv://pokemonsv2:${password}@pokemonsv2.uczp40b.mongodb.net/?retryWrites=true&w=majority&appName=Pokemonsv2`;
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+const httpServer = http.createServer(app);
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -19,23 +30,44 @@ const client = new MongoClient(uri, {
   },
 });
 
-client.connect();
+try {
+  await client.connect();
+  console.log("Connected to MongoDB successfully");
+} catch (err) {
+  console.error("Failed to connect to MongoDB", err);
+  process.exit(1); // Exit process if the connection fails
+}
 
-const server = new ApolloServer({ typeDefs, resolvers });
-
-const { url } = await startStandaloneServer(server, {
-  context: async () => {
-    const { cache } = server;
-
-    return {
-      dataSources: {
-        pokemonAPI: new PokemonAPI({ cache }),
-        basePokemons: new PokemonMongo({
-          modelOrCollection: client.db("pokemons").collection("ids"),
-        }),
-      },
-    };
-  },
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 
-console.log(`🚀  Server ready at: ${url}`);
+await server.start();
+
+app.use(
+  '/',
+  cors<cors.CorsRequest>(),
+  express.json(),
+  expressMiddleware(server, {
+    context: async ({ req }) => {
+      const { cache } = server;
+
+      return {
+        token: req.headers.token,
+        dataSources: {
+          pokemonAPI: new PokemonAPI({ cache }),
+          basePokemons: new PokemonMongo({
+            modelOrCollection: client.db("pokemons").collection("ids"),
+          }),
+        },
+      };
+    },
+  }),
+);
+
+await new Promise<void>((resolve) => httpServer.listen({ port: 4000 }, resolve));
+
+console.log(`🚀 Server ready at http://localhost:4000/`);
+export default httpServer;

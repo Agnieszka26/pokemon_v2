@@ -15,11 +15,13 @@
     "@apollo/datasource-rest": "^6.2.2",
     "@apollo/server": "^4.10.0",
     "apollo-datasource-mongodb": "^0.6.0",
+    "apollo-server-core": "^3.13.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "graphql": "^16.8.1",
     "graphql-tag": "^2.12.6",
+    "http": "^0.0.1-security",
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.1",
     "nodemon": "^3.1.0",
@@ -29,6 +31,7 @@
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/node": "^20.11.22",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3"
