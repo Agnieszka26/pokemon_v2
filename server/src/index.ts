@@ -5,8 +5,10 @@ import resolvers from "./resolvers";
 import PokemonAPI from "./datasource/pokemon-api";
 import { MongoClient, ServerApiVersion } from "mongodb";
 import PokemonMongo from "./datasource/mongo-api";
+import dotenv from 'dotenv'
+dotenv.config()
 
-const password = encodeURIComponent("Haslo123#");
+const password = encodeURIComponent(process.env.SECRET_MONGODB);
 const uri = `mongodb+srv://pokemonsv2:${password}@pokemonsv2.uczp40b.mongodb.net/?retryWrites=true&w=majority&appName=Pokemonsv2`;
 
 const client = new MongoClient(uri, {
