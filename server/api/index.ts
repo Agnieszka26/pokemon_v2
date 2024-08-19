@@ -8,13 +8,42 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import gql from "graphql-tag";
-import http from "http";
-import PokemonMongo from "../src/datasource/mongo-api/index";
-import PokemonAPI from "../src/datasource/pokemon-api/index";
+import http from "http";import { MongoDataSource } from "apollo-datasource-mongodb";
+import BasePokemonModel from "../src/models/BasePokemon";
 // import typeDefs from "../src/typeDefs";
 // import resolvers from "../src/resolvers";
 // import PokemonAPI from "../src/datasource/pokemon-api";
 // import PokemonMongo from "../src/datasource/mongo-api";
+
+import { RESTDataSource } from "@apollo/datasource-rest";
+class PokemonAPI extends RESTDataSource {
+  baseURL = "https://pokeapi.co/api/v2/";
+
+  getPokemon(pokemonId) {
+    return this.get(`pokemon/${pokemonId}`);
+  }
+
+  getLimitedPokemons(limit, offset) {
+    return this.get(`pokemon/?limit=${limit}&offset=${offset}/`);
+  }
+  getPokemonByUrl(url) {
+    return this.get(url);
+  }
+}
+
+
+class PokemonMongo extends MongoDataSource<
+  typeof BasePokemonModel
+> {
+  pokemons() {
+    return this.findByFields({});
+  }
+
+  pokemon(id) {
+
+  }
+
+}
 const resolvers = {
 	Query: {
 		// returns a base details of pokemons
