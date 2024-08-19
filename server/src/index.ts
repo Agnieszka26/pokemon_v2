@@ -6,8 +6,8 @@ import dotenv from "dotenv";
 import express from "express";
 import http from "http";
 import { MongoClient, ServerApiVersion } from "mongodb";
-import PokemonMongo from "./datasource/mongo-api";
-import PokemonAPI from "./datasource/pokemon-api";
+import PokemonMongo from "./datasource/mongo-api/index";
+import PokemonAPI from "./datasource/pokemon-api/index";
 import resolvers from "./resolvers";
 import typeDefs from "./typeDefs";
 
