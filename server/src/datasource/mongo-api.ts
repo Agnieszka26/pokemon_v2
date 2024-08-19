@@ -1,5 +1,5 @@
 import { MongoDataSource } from "apollo-datasource-mongodb";
-import BasePokemonModel from "../../models/BasePokemon";
+import BasePokemonModel from "../models/BasePokemon";
 
 export default class PokemonMongo extends MongoDataSource<
   typeof BasePokemonModel
