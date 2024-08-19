@@ -5,7 +5,7 @@
   "main": "src/index",
   "scripts": {
     "compile": "tsc",
-    "start": "tsx watch src/index.ts"
+    "start": "tsx watch index.ts"
   },
   "keywords": [],
   "author": "",
