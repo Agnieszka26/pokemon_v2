@@ -11,6 +11,8 @@ import {
 } from '@apollo/client';
 import cn from './utils/className';
 const inter = Inter({ subsets: ['latin'] });
+const uri = process.env.NEXT_PUBLIC_NODE_ENV ==="development"? 'http://localhost:5844/graphql' : 'https://pokemonv2-production.up.railway.app/graphql'
+
 
 export default function RootLayout({
   children,
@@ -20,7 +22,7 @@ export default function RootLayout({
 
   const client = new ApolloClient({
     link: new HttpLink({
-      uri: 'http://localhost:4000/',
+      uri,
 
       fetch: async (uri, options) => {
         return fetch(uri, options);

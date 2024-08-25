@@ -11,5 +11,5 @@ export default class PokemonMongo extends MongoDataSource<
   pokemon(id) {
 
   }
-  
+
 }
