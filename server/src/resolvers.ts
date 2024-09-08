@@ -22,6 +22,14 @@ const resolvers = {
       return dataSources.pokemonAPI.getPokemonByUrl(url);
     },
   },
+  Mutation: {
+    registerUser: async (_, { name, email, nick, password }) => {
+      // Placeholder for registration logic
+    },
+    confirmEmail: async (_, { token }) => {
+      // Placeholder for email confirmation logic
+    }
+  }
 };
 
 export default resolvers;

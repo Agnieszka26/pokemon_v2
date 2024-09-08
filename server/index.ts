@@ -26,6 +26,7 @@ const client = new MongoClient(uri, {
 		version: ServerApiVersion.v1,
 		strict: true,
 		deprecationErrors: true,
+
 	},
 });
 
@@ -37,7 +38,7 @@ app.use(cors());
 
 const run = async () => {
 	try {
-		await client.connect();
+		await client.connect(  );
 		console.log("Connected to MongoDB successfully");
 	} catch (err) {
 		console.error("Failed to connect to MongoDB", err);
