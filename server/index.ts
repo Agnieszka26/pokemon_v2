@@ -11,6 +11,7 @@ import typeDefs from "./src/typeDefs";
 
 import PokemonMongo from "./src/datasource/mongo-api";
 import PokemonAPI from "./src/datasource/pokemon-api";
+import UserMongo from "./src/datasource/user-api";
 
 dotenv.config();
 
@@ -66,6 +67,9 @@ const run = async () => {
 						pokemonAPI: new PokemonAPI({ cache }), // External API Data Source
 						basePokemons: new PokemonMongo({
 							modelOrCollection: client.db("pokemons").collection("ids"), // MongoDB Collection
+						}),
+						users: new UserMongo({
+							modelOrCollection: client.db("pokemons").collection("users"),
 						}),
 					},
 				};
