@@ -1,6 +1,5 @@
 import { MongoDataSource } from "apollo-datasource-mongodb";
-import {UserModel} from "../models/User";
-
+import { UserModel } from "../models/User";
 export default class UserMongo extends MongoDataSource<typeof UserModel> {
 	checkUserExists(email: string) {
 		console.log("email", email);
@@ -8,13 +7,19 @@ export default class UserMongo extends MongoDataSource<typeof UserModel> {
 	}
 
 	async createUser(params) {
-        const userDoc = new UserModel(params);
-		console.log("params",  userDoc);
-        await userDoc.save();
-		// return //this.insertOne(params)
-        const userFromDb = await UserModel.findOne({ name: 'test' });
-        console.log('userFromDb', userFromDb)
+		console.log('params', params)
+		const user = new UserModel({
+			name: params.name,
+			email: params.email,
+			nick: params.nick,
+			password: params.password,
+			confirmed: false,
+		});
+		const res = await user.save();
+		console.log('res', res)
+		return {
+			id: res.id,
+			...res._doc
+		}
 	}
-
-
 }

@@ -7,6 +7,7 @@ import   * as R from "ramda"
 // "password": "test",
 // "rePassword": "test"
 // }
+import BasePokemonModel from "./models/BasePokemon";
 
 const resolvers = {
   Query: {
@@ -33,6 +34,16 @@ const resolvers = {
     },
   },
   Mutation: {
+    createPokemon: async (_,{ name, id}, {dataSources} ) =>{
+      // console.log('addMainPokemon, name, id', name, id)
+      // console.log(' dataSources', dataSources.basePokemons.addPokemon(id, name))
+      const newPokemon = new BasePokemonModel({ name, id} );
+      await newPokemon.save();
+      // const pokemon = await dataSources.basePokemons.addPokemon(id, name)
+      return newPokemon
+    },
+
+
     registerUser: async (_, { name, email, nick, password }, {dataSources}) => {
 
 
@@ -44,29 +55,30 @@ const resolvers = {
         // }
 
         // Create new user
+
         const user = await dataSources.users.createUser({ name, email, nick, password });
-        // await user.save();
+        console.log('user', user)
 
         // Generate confirmation token
-        const token = jwt.sign({ userId: user.id }, 'secret-key', { expiresIn: '1d' });
+      //   const token = jwt.sign({ userId: user.id }, 'secret-key', { expiresIn: '1d' });
 
-        // Send confirmation email
-        const transporter = nodemailer.createTransport({
-          service: 'Gmail',
-          auth: {
-            user: 'your-email@gmail.com',
-            pass: 'your-email-password'
-          }
-        });
+      //   // Send confirmation email
+      //   const transporter = nodemailer.createTransport({
+      //     service: 'Gmail',
+      //     auth: {
+      //       user: 'your-email@gmail.com',
+      //       pass: 'your-email-password'
+      //     }
+      //   });
 
-        const url = `http://localhost:4000/confirm/${token}`;
-        await transporter.sendMail({
-          to: user.email,
-          subject: 'Confirm your email',
-          html: `Please click this link to confirm your email: <a href="${url}">${url}</a>`
-        });
+      //   const url = `http://localhost:4000/confirm/${token}`;
+      //   await transporter.sendMail({
+      //     to: user.email,
+      //     subject: 'Confirm your email',
+      //     html: `Please click this link to confirm your email: <a href="${url}">${url}</a>`
+      //   });
 
-        return 'Please check your email to confirm your account';
+      //   return 'Please check your email to confirm your account';
       },
     },
     // confirmEmail: async (_, { token }) => {

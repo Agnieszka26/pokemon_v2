@@ -12,5 +12,9 @@ export default class PokemonMongo extends MongoDataSource<
     return this.findByFields({id})
 
   }
+  addPokemon(id, name){
+
+  }
+
 
 }

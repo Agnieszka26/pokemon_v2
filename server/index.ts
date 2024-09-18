@@ -12,7 +12,7 @@ import typeDefs from "./src/typeDefs";
 import PokemonMongo from "./src/datasource/mongo-api";
 import PokemonAPI from "./src/datasource/pokemon-api";
 import UserMongo from "./src/datasource/user-api";
-
+//
 dotenv.config();
 
 const port = process.env.PORT || 5844;
@@ -20,9 +20,12 @@ const app = express();
 
 // MongoDB Connection URI
 const password = encodeURIComponent(process.env.SECRET_MONGODB);
-const uri = `mongodb+srv://pokemonsv2:${password}@pokemonsv2.uczp40b.mongodb.net/?retryWrites=true&w=majority&appName=Pokemonsv2`;
+const uri = `mongodb+srv://pokemonsv2:${password}@pokemonsv2.uczp40b.mongodb.net/?retryWrites=true&w=majority&appName=Pokemonsv2&ssl=true`;
 
 const client = new MongoClient(uri, {
+
+
+
 	serverApi: {
 		version: ServerApiVersion.v1,
 		strict: true,
@@ -35,11 +38,13 @@ const httpServer = http.createServer(app);
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
 const run = async () => {
 	try {
-		await client.connect(  );
+		await client.connect(        { useNewUrlParser: true,
+			useUnifiedTopology: true,
+			useCreateIndex: true, } );
 		console.log("Connected to MongoDB successfully");
 	} catch (err) {
 		console.error("Failed to connect to MongoDB", err);
@@ -56,11 +61,13 @@ const run = async () => {
 
 	app.use(
 		"/graphql",
-		cors(), // Apply CORS middleware
+		// cors(), // Apply CORS middleware
 		express.json(), // Apply JSON middleware
 		expressMiddleware(server, {
 			context: async ({ req }) => {
 				const { cache } = server;
+
+
 				return {
 					token: req.headers.token,
 					dataSources: {
